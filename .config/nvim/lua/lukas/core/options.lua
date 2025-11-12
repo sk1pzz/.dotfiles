@@ -20,7 +20,8 @@ opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- cursor line
-opt.cursorline = false -- highlight the current cursor line
+opt.cursorline = true -- highlight the current cursor line
+vim.cmd([[highlight CursorLine cterm=NONE ctermbg=236 guibg=#2a2a2a]])
 
 -- appearance
 

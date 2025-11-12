@@ -71,6 +71,16 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- vim.api.nvim_set_hl(0, "DiagnosticSignError", { link = "DiagnosticError" })
+		-- vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { link = "DiagnosticWarn" })
+		-- vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { link = "DiagnosticInfo" })
+		-- vim.api.nvim_set_hl(0, "DiagnosticSignHint", { link = "DiagnosticHint" })
+		--
+		-- vim.fn.sign_define("DiagnosticSignError", { text = " " })
+		-- vim.fn.sign_define("DiagnosticSignWarn", { text = " " })
+		-- vim.fn.sign_define("DiagnosticSignInfo", { text = " " })
+		-- vim.fn.sign_define("DiagnosticSignHint", { text = "󰠠 " })
+
 		vim.lsp.config("*", {
 			capabilities = capabilities,
 		})
