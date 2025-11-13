@@ -64,22 +64,23 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- (not in youtube nvim video)
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		local signs = {
+			Error = " ",
+			Warn = " ",
+			Hint = "󰠠 ",
+			Info = " ",
+		}
 
-		-- vim.api.nvim_set_hl(0, "DiagnosticSignError", { link = "DiagnosticError" })
-		-- vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { link = "DiagnosticWarn" })
-		-- vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { link = "DiagnosticInfo" })
-		-- vim.api.nvim_set_hl(0, "DiagnosticSignHint", { link = "DiagnosticHint" })
-		--
-		-- vim.fn.sign_define("DiagnosticSignError", { text = " " })
-		-- vim.fn.sign_define("DiagnosticSignWarn", { text = " " })
-		-- vim.fn.sign_define("DiagnosticSignInfo", { text = " " })
-		-- vim.fn.sign_define("DiagnosticSignHint", { text = "󰠠 " })
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = signs.Error,
+					[vim.diagnostic.severity.WARN] = signs.Warn,
+					[vim.diagnostic.severity.HINT] = signs.Hint,
+					[vim.diagnostic.severity.INFO] = signs.Info,
+				},
+			},
+		})
 
 		vim.lsp.config("*", {
 			capabilities = capabilities,
